@@ -454,7 +454,7 @@ export default function App() {
               <img
                 src={imgRgLogotype11}
                 alt="Advanced Orthopedics New England"
-                className="h-14 w-auto self-start object-contain shrink-0"
+                className="h-20 w-auto self-start object-contain shrink-0"
               />
               <div className="flex flex-col gap-5">
                 <h1 id="hero-heading"
@@ -601,11 +601,11 @@ export default function App() {
               {/* Logo + social */}
               <Reveal className="flex flex-col gap-8 sm:gap-12 w-full sm:w-[253px] shrink-0">
                 <img src={imgRgLogotype11} alt="Advanced Orthopedics New England"
-                  className="h-14 w-auto self-start object-contain shrink-0" />
+                  className="h-20 w-auto self-start object-contain shrink-0" />
                 <div className="flex flex-col gap-3 items-start">
                   <p className={`${fLight} text-white text-base leading-6`}>Follow us on</p>
                   <div className="flex gap-5 items-center">
-                    <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.facebook.com/ctortho/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"
                       className="focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#15284b] rounded"
                       style={{ transition: "opacity 0.2s ease, transform 0.2s ease" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.15)"; }}
@@ -615,7 +615,7 @@ export default function App() {
                         <path d={svgPaths.p24dd3180} fill={BLUE} />
                       </svg>
                     </a>
-                    <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.instagram.com/ctortho/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
                       className="focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#15284b] rounded"
                       style={{ transition: "opacity 0.2s ease, transform 0.2s ease" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.15)"; }}
