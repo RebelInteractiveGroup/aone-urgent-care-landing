@@ -139,7 +139,8 @@ function HeroForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate aria-label="Request an orthopedic evaluation" className="flex flex-col gap-4 w-full">
+    <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" noValidate aria-label="Request an orthopedic evaluation" className="flex flex-col gap-4 w-full">
+          <input type="hidden" name="form-name" value="contact" />
       {/* First / Last Name */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
