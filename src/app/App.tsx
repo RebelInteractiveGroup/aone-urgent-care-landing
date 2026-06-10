@@ -327,8 +327,8 @@ const testimonials = [
   { quote: "I've been going to AONE for years and have had three joint replacements there. Now that I need a fourth, I wouldn't consider going anywhere else. The doctors, clinical team, and office staff are consistently friendly, compassionate, and knowledgeable. The care I've received has made a real difference every step of the way.", name: "Laurie E." },
   { quote: "I injured my ankle during a weekend soccer game and was worried I'd need to wait days to see a specialist. I walked into the orthopedic urgent care, had X-rays taken on-site, and left with a clear diagnosis and treatment plan. The entire experience was fast, professional, and reassuring.", name: "Michael R." },
   { quote: "From check-in to treatment, the process was smooth and efficient. I was dealing with severe knee pain and was relieved to get answers right away instead of waiting weeks for an appointment.", name: "Lisa P." },
-  { quote: "After working with multiple agencies in the past, this was by far the smoothest and most rewarding design experience we've had.", name: "Jerome Bell", role: "Marketing Manager", avatar: imgAvatar1 },
-  { quote: "From the initial consultation to the final delivery, the process was seamless and incredibly professional — I've never felt more confident in a partnership.", name: "Jenny Wilson", role: "Medical Assistant", avatar: imgAvatar2 },
+  { quote: "After working with multiple agencies in the past, this was by far the smoothest and most rewarding design experience we've had.", name: "Jerome Bell" },
+  { quote: "From the initial consultation to the final delivery, the process was seamless and incredibly professional — I've never felt more confident in a partnership.", name: "Jenny Wilson" },
 ];
 
 // ─── TestimonialsCarousel ─────────────────────────────────────────────────────
