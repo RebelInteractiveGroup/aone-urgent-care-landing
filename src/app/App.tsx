@@ -175,6 +175,7 @@ function HeroForm() {
   };
 
   const inputCls = "w-full bg-transparent border border-white rounded-lg px-4 py-2.5 text-white placeholder-white/70 text-sm font-['DM_Sans',sans-serif] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#15284b]";
+  const selectCls = `${inputCls} bg-[#15284b]`;
   const labelCls = `block ${fBold} text-white text-sm uppercase mb-2`;
   const errCls = "text-red-300 text-xs mt-1";
   const arrowIcon = (
@@ -257,12 +258,12 @@ function HeroForm() {
             onChange={e => setForm({ ...form, location: e.target.value })}
             aria-required="true" aria-invalid={!!errors.location}
             aria-describedby={errors.location ? `${locationId}-err` : undefined}
-            className={`${inputCls} appearance-none pr-10`}>
-            <option value="" disabled>Select location</option>
-            <option value="bloomfield">Bloomfield, CT</option>
-            <option value="enfield">Enfield, CT</option>
-            <option value="vernon">Vernon, CT</option>
-            <option value="springfield">Springfield, MA</option>
+            className={`${selectCls} appearance-none pr-10`}>
+            <option value="" disabled style={{ backgroundColor: NAVY }}>Select location</option>
+            <option value="bloomfield" style={{ backgroundColor: NAVY }}>Bloomfield, CT</option>
+            <option value="enfield" style={{ backgroundColor: NAVY }}>Enfield, CT</option>
+            <option value="vernon" style={{ backgroundColor: NAVY }}>Vernon, CT</option>
+            <option value="springfield" style={{ backgroundColor: NAVY }}>Springfield, MA</option>
           </select>
           {arrowIcon}
         </div>
@@ -279,15 +280,15 @@ function HeroForm() {
             onChange={e => setForm({ ...form, reason: e.target.value })}
             aria-required="true" aria-invalid={!!errors.reason}
             aria-describedby={errors.reason ? `${reasonId}-err` : undefined}
-            className={`${inputCls} appearance-none pr-10`}>
-            <option value="" disabled>Select reason</option>
-            <option value="fracture">Broken Bone / Fracture</option>
-            <option value="sprain">Sprain / Strain</option>
-            <option value="joint">Joint Pain</option>
-            <option value="sports">Sports Injury</option>
-            <option value="back">Back / Neck Pain</option>
-            <option value="work">Work-Related Injury</option>
-            <option value="other">Other</option>
+            className={`${selectCls} appearance-none pr-10`}>
+            <option value="" disabled style={{ backgroundColor: NAVY }}>Select reason</option>
+            <option value="fracture" style={{ backgroundColor: NAVY }}>Broken Bone / Fracture</option>
+            <option value="sprain" style={{ backgroundColor: NAVY }}>Sprain / Strain</option>
+            <option value="joint" style={{ backgroundColor: NAVY }}>Joint Pain</option>
+            <option value="sports" style={{ backgroundColor: NAVY }}>Sports Injury</option>
+            <option value="back" style={{ backgroundColor: NAVY }}>Back / Neck Pain</option>
+            <option value="work" style={{ backgroundColor: NAVY }}>Work-Related Injury</option>
+            <option value="other" style={{ backgroundColor: NAVY }}>Other</option>
           </select>
           {arrowIcon}
         </div>
