@@ -193,7 +193,7 @@ function HeroForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" noValidate aria-label="Request an orthopedic evaluation" className="flex flex-col gap-4 w-full">
+    <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" noValidate aria-label="Request an orthopedic evaluation" className="flex flex-col gap-4 w-full">
       <input type="hidden" name="form-name" value="contact" />
       {/* First / Last Name */}
       <div className="flex flex-col sm:flex-row gap-4">
@@ -293,8 +293,6 @@ function HeroForm() {
         </div>
         {errors.reason && <p id={`${reasonId}-err`} className={errCls} role="alert">{errors.reason}</p>}
       </div>
-
-      <div data-netlify-recaptcha="true"></div>
 
       <button type="submit"
         className={`${fBold} w-full rounded-lg py-3 px-5 text-white uppercase text-base focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#15284b]`}
