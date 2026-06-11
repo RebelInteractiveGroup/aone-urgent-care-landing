@@ -170,11 +170,14 @@ function HeroForm() {
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
+    const recaptchaToken = (document.querySelector('[name="g-recaptcha-response"]') as HTMLInputElement)?.value || "";
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": "contact",
+        "g-recaptcha-response": recaptchaToken,
         firstName: form.firstName,
         lastName: form.lastName,
         email: form.email,
