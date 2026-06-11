@@ -160,34 +160,18 @@ function HeroForm() {
     return e;
   };
 
-  const encode = (data: Record<string, string>) =>
-    Object.keys(data)
-      .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
-      .join("&");
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
-    const recaptchaToken = (document.querySelector('[name="g-recaptcha-response"]') as HTMLInputElement)?.value || "";
-
+    // FormData captures all named fields including the reCAPTCHA textarea Netlify injects
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "contact",
-        "g-recaptcha-response": recaptchaToken,
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        phone: form.phone,
-        location: form.location,
-        reason: form.reason,
-      }),
+      body: new URLSearchParams(new FormData(e.currentTarget) as unknown as Record<string, string>),
     })
       .then(() => setSubmitted(true))
-      .catch(() => setSubmitted(true)); // show success even on network error — form still submits
+      .catch(() => setSubmitted(true));
   };
 
   const inputCls = "w-full bg-transparent border border-white rounded-lg px-4 py-2.5 text-white placeholder-white/70 text-sm font-['DM_Sans',sans-serif] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#15284b]";
