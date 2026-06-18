@@ -653,15 +653,20 @@ export default function App() {
               {/* Locations */}
               <nav aria-label="Clinic locations" className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
                 {[
-                  { title: "Bloomfield Urgent Care", lines: ["35 Jolley Drive, Suite 301, Bloomfield, CT 06002"], phones: [{ label: "", tel: "+18607286740", display: "(860) 728-6740" }] },
-                  { title: "Enfield Urgent Care", lines: ["Elm Street, Suite 101, Enfield, CT 06082"], phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18602530431", display: "(860) 253-0431" }] },
-                  { title: "Vernon Urgent Care", lines: ["224 Hartford Turnpike, Vernon, CT 06066"], phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18604548200", display: "(860) 454-8200" }] },
-                  { title: "Springfield, MA", lines: ["299 Carew Street, Suite 409, Springfield, MA 01104"], phones: [{ label: "Phone: ", tel: "+14137887321", display: "(413) 788-7321" }, { label: "Fax: ", tel: "+14137336369", display: "(413) 733-6369" }] },
+                  { title: "Bloomfield Urgent Care", lines: ["35 Jolley Drive, Suite 301, Bloomfield, CT 06002"], map: "https://maps.app.goo.gl/j6dgTz8FoQ5t3FuS8", phones: [{ label: "", tel: "+18607286740", display: "(860) 728-6740" }] },
+                  { title: "Enfield Urgent Care", lines: ["Elm Street, Suite 101, Enfield, CT 06082"], map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6", phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18602530431", display: "(860) 253-0431" }] },
+                  { title: "Vernon Urgent Care", lines: ["224 Hartford Turnpike, Vernon, CT 06066"], map: "https://maps.app.goo.gl/GCWFqqPREpwh5sr9A", phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18604548200", display: "(860) 454-8200" }] },
+                  { title: "Springfield, MA", lines: ["299 Carew Street, Suite 409, Springfield, MA 01104"], map: "https://maps.app.goo.gl/NR5Z1dKWN4QmeZVi9", phones: [{ label: "Phone: ", tel: "+14137887321", display: "(413) 788-7321" }, { label: "Fax: ", tel: "+14137336369", display: "(413) 733-6369" }] },
                 ].map((loc, i) => (
                   <Reveal key={loc.title} delay={i * 60} className="flex flex-col gap-2.5">
                     <h3 className={`${fBold} text-xl leading-7`}>{loc.title}</h3>
                     <address className="not-italic">
-                      {loc.lines.map((l, j) => <p key={j} className={`${fLight} text-base leading-6`}>{l}</p>)}
+                      {loc.lines.map((l, j) => (
+                        <a key={j} href={loc.map} target="_blank" rel="noopener noreferrer"
+                          className={`${fLight} text-base leading-6 underline hover:opacity-80 transition-opacity block`}>
+                          {l}
+                        </a>
+                      ))}
                       {loc.phones.map((p, j) => (
                         <p key={j} className={`${fLight} text-base leading-6`}>
                           {p.label}
