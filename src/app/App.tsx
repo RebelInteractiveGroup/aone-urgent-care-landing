@@ -460,21 +460,23 @@ export default function App() {
               {/* Location list */}
               <div className="flex flex-col gap-4">
                 {[
-                  { title: "Bloomfield Urgent Care", address: "35 Jolley Drive, Suite 301, Bloomfield, CT 06002" },
-                  { title: "Enfield Urgent Care",    address: "Elm Street, Suite 101, Enfield, CT 06082" },
-                  { title: "Vernon Urgent Care",     address: "224 Hartford Turnpike, Vernon, CT 06066" },
-                  { title: "Springfield, MA",        address: "299 Carew Street, Suite 409, Springfield, MA 01104" },
+                  { title: "Bloomfield Urgent Care", address: "35 Jolley Drive, Suite 301, Bloomfield, CT 06002", map: "https://maps.app.goo.gl/j6dgTz8FoQ5t3FuS8" },
+                  { title: "Enfield Urgent Care",    address: "Elm Street, Suite 101, Enfield, CT 06082",         map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6" },
+                  { title: "Vernon Urgent Care",     address: "224 Hartford Turnpike, Vernon, CT 06066",          map: "https://maps.app.goo.gl/GCWFqqPREpwh5sr9A" },
+                  { title: "Springfield, MA",        address: "299 Carew Street, Suite 409, Springfield, MA 01104", map: "https://maps.app.goo.gl/NR5Z1dKWN4QmeZVi9" },
                 ].map(loc => (
-                  <div key={loc.title}>
+                  <a key={loc.title} href={loc.map} target="_blank" rel="noopener noreferrer" className="group hover:opacity-80 transition-opacity">
                     <p className={`${fBold} text-white text-base leading-6`}>{loc.title}</p>
                     <p className={`${fLight} text-white text-sm leading-5 opacity-80`}>{loc.address}</p>
-                  </div>
+                  </a>
                 ))}
               </div>
 
               {/* CTA */}
               <a
-                href="#"
+                href="https://ctortho.radixhealth.com/dash/self2/provider-search"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Schedule an appointment at Advanced Orthopedics New England"
                 className={`${fBold} inline-flex items-center justify-center self-start rounded-md px-6 py-3 text-white uppercase text-base focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#15284b]`}
                 style={{
