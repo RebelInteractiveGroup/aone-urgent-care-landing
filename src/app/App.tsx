@@ -474,9 +474,7 @@ export default function App() {
 
               {/* CTA */}
               <a
-                href="https://healow.com/apps/practice/advanced-orthopedics-of-new-england-pc-22783?v=2&t=1"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 aria-label="Schedule an appointment at Advanced Orthopedics New England"
                 className={`${fBold} inline-flex items-center justify-center self-start rounded-md px-6 py-3 text-white uppercase text-base focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#15284b]`}
                 style={{
