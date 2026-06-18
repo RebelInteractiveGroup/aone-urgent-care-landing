@@ -663,7 +663,7 @@ export default function App() {
                     <address className="not-italic">
                       {loc.lines.map((l, j) => (
                         <a key={j} href={loc.map} target="_blank" rel="noopener noreferrer"
-                          className={`${fLight} text-base leading-6 underline hover:opacity-80 transition-opacity block`}>
+                          className={`${fLight} text-base leading-6 hover:opacity-80 transition-opacity block`}>
                           {l}
                         </a>
                       ))}
