@@ -437,7 +437,7 @@ export default function App() {
           </div>
 
           <div ref={heroRef} className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 py-24 flex flex-col lg:flex-row gap-16 lg:gap-24 items-start lg:items-center justify-center">
-            {/* Left — logo, heading, form */}
+            {/* Left — logo, heading, locations, CTA */}
             <div className="flex flex-col gap-8 w-full lg:max-w-[561px]">
               <img
                 src={imgRgLogotype11}
@@ -448,13 +448,46 @@ export default function App() {
                 <h1 id="hero-heading"
                   className={`${fBold} text-white uppercase leading-[1.16]`}
                   style={{ fontSize: "clamp(2rem, 5vw, 3.4375rem)" }}>
-                  Expert Orthopedic Care, When You Need It
+                  Same-Day Appointments Available
                 </h1>
                 <p className={`${fLight} text-white text-base leading-6`}>
-                  Complete the form below to request an orthopedic evaluation. Our team will review your information, reach out to discuss your symptoms and schedule a consultation, and develop a personalized treatment plan designed to help you heal and get back to your life.
+                  Get fast access to specialized orthopedic care. Schedule your appointment now online, or call us at{" "}
+                  <a href="tel:+18607286740" className="underline hover:opacity-80">(860) 728-6740</a>{" "}
+                  to speak directly with our team and find the earliest available time.
                 </p>
               </div>
-              <HeroForm />
+
+              {/* Location list */}
+              <div className="flex flex-col gap-4">
+                {[
+                  { title: "Bloomfield Urgent Care", address: "35 Jolley Drive, Suite 301, Bloomfield, CT 06002" },
+                  { title: "Enfield Urgent Care",    address: "Elm Street, Suite 101, Enfield, CT 06082" },
+                  { title: "Vernon Urgent Care",     address: "224 Hartford Turnpike, Vernon, CT 06066" },
+                  { title: "Springfield, MA",        address: "299 Carew Street, Suite 409, Springfield, MA 01104" },
+                ].map(loc => (
+                  <div key={loc.title}>
+                    <p className={`${fBold} text-white text-base leading-6`}>{loc.title}</p>
+                    <p className={`${fLight} text-white text-sm leading-5 opacity-80`}>{loc.address}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <a
+                href="https://healow.com/apps/practice/advanced-orthopedics-of-new-england-pc-22783?v=2&t=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Schedule an appointment at Advanced Orthopedics New England"
+                className={`${fBold} inline-flex items-center justify-center self-start rounded-md px-6 py-3 text-white uppercase text-base focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#15284b]`}
+                style={{
+                  backgroundColor: ORANGE,
+                  transition: "opacity 0.2s ease, transform 0.2s cubic-bezier(0.22,1,0.36,1)",
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.015)"; (e.currentTarget as HTMLAnchorElement).style.opacity = "0.93"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)"; (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
+              >
+                Schedule Appointment
+              </a>
             </div>
 
             {/* Right — hero image */}
