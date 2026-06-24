@@ -451,9 +451,9 @@ export default function App() {
                   Same-Day Appointments Available
                 </h1>
                 <p className={`${fLight} text-white text-base leading-6`}>
-                  Get fast access to specialized orthopedic care. Schedule your appointment now online, or call us at{" "}
+                  Fast, convenient orthopedic care is available when you need it. Walk in during our operating hours—no appointment necessary. For added convenience, appointments may also be scheduled online. For additional information, call{" "}
                   <a href="tel:+18607286740" className="underline hover:opacity-80">(860) 728-6740</a>{" "}
-                  to speak directly with our team and find the earliest available time.
+                  and speak with a member of our team.
                 </p>
               </div>
 
@@ -467,7 +467,12 @@ export default function App() {
                 ].map(loc => (
                   <a key={loc.title} href={loc.map} target="_blank" rel="noopener noreferrer" className="group hover:opacity-80 transition-opacity">
                     <p className={`${fBold} text-white text-base leading-6`}>{loc.title}</p>
-                    <p className={`${fLight} text-white text-sm leading-5 opacity-80`}>{loc.address}</p>
+                    <span className={`${fLight} text-white text-sm leading-5 opacity-80 inline-flex items-center gap-1`}>
+                      {loc.address}
+                      <svg aria-hidden="true" focusable="false" className="inline-block w-3.5 h-3.5 shrink-0 opacity-70" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M10 1h3v3M6 8l7-7M5 2H2a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9" />
+                      </svg>
+                    </span>
                   </a>
                 ))}
               </div>
@@ -663,8 +668,11 @@ export default function App() {
                     <address className="not-italic">
                       {loc.lines.map((l, j) => (
                         <a key={j} href={loc.map} target="_blank" rel="noopener noreferrer"
-                          className={`${fLight} text-base leading-6 hover:opacity-80 transition-opacity block`}>
+                          className={`${fLight} text-base leading-6 hover:opacity-80 transition-opacity inline-flex items-center gap-1`}>
                           {l}
+                          <svg aria-hidden="true" focusable="false" className="inline-block w-3.5 h-3.5 shrink-0 opacity-70" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M10 1h3v3M6 8l7-7M5 2H2a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9" />
+                          </svg>
                         </a>
                       ))}
                       {loc.phones.map((p, j) => (
