@@ -451,9 +451,7 @@ export default function App() {
                   Same-Day Appointments Available
                 </h1>
                 <p className={`${fLight} text-white text-base leading-6`}>
-                  Fast, convenient orthopedic care is available when you need it. Walk in during our operating hours—no appointment necessary. For added convenience, appointments may also be scheduled online. For additional information, call{" "}
-                  <a href="tel:+18607286740" className="underline hover:opacity-80 whitespace-nowrap">(860) 728-6740</a>{" "}
-                  and speak with a member of our team.
+                  Fast, convenient orthopedic care is available when you need it. Walk in during our operating hours—no appointment necessary. For added convenience, appointments may also be scheduled online.
                 </p>
               </div>
 
