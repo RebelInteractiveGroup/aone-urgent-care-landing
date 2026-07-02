@@ -460,19 +460,26 @@ export default function App() {
               {/* Location list */}
               <div className="flex flex-col gap-4">
                 {[
-                  { title: "Bloomfield Urgent Care", address: "35 Jolley Drive, Suite 301, Bloomfield, CT 06002", map: "https://maps.app.goo.gl/j6dgTz8FoQ5t3FuS8" },
-                  { title: "Enfield Urgent Care",    address: "113 Elm Street, Suite 101, Enfield, CT 06082",     map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6" },
-                  { title: "Vernon Urgent Care",     address: "224 Hartford Turnpike, Vernon, CT 06066",          map: "https://maps.app.goo.gl/GCWFqqPREpwh5sr9A" },
+                  { title: "Bloomfield Urgent Care", phone: "(860) 730-9965", tel: "+18607309965", address: "35 Jolley Drive, Suite 301, Bloomfield, CT 06002", map: "https://maps.app.goo.gl/j6dgTz8FoQ5t3FuS8" },
+                  { title: "Enfield Urgent Care",    phone: "(860) 321-0583", tel: "+18603210583", address: "113 Elm Street, Suite 101, Enfield, CT 06082",     map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6" },
+                  { title: "Vernon Urgent Care",     phone: "(860) 217-3137", tel: "+18602173137", address: "224 Hartford Turnpike, Vernon, CT 06066",          map: "https://maps.app.goo.gl/GCWFqqPREpwh5sr9A" },
                 ].map(loc => (
-                  <a key={loc.title} href={loc.map} target="_blank" rel="noopener noreferrer" className="group hover:opacity-80 transition-opacity">
-                    <p className={`${fBold} text-white text-base leading-6`}>{loc.title}</p>
-                    <span className={`${fLight} text-white text-sm leading-5 opacity-80 inline-flex items-center gap-1`}>
-                      {loc.address}
-                      <svg aria-hidden="true" focusable="false" className="inline-block w-3.5 h-3.5 shrink-0 opacity-70" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M10 1h3v3M6 8l7-7M5 2H2a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9" />
-                      </svg>
-                    </span>
-                  </a>
+                  <div key={loc.title} className="flex flex-col">
+                    <a href={loc.map} target="_blank" rel="noopener noreferrer" className="group hover:opacity-80 transition-opacity">
+                      <p className={`${fBold} text-white text-[18.4px] leading-[27.6px]`}>{loc.title}</p>
+                    </a>
+                    <a href={`tel:${loc.tel}`} className={`${fBold} text-white text-[16.1px] leading-[23px] underline hover:opacity-80 w-fit`}>
+                      {loc.phone}
+                    </a>
+                    <a href={loc.map} target="_blank" rel="noopener noreferrer" className="group hover:opacity-80 transition-opacity">
+                      <span className={`${fLight} text-white text-[16.1px] leading-[23px] opacity-80 inline-flex items-center gap-1`}>
+                        {loc.address}
+                        <svg aria-hidden="true" focusable="false" className="inline-block w-3.5 h-3.5 shrink-0 opacity-70" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M10 1h3v3M6 8l7-7M5 2H2a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9" />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
                 ))}
               </div>
 
