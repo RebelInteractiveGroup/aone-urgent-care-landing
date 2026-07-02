@@ -1,4 +1,5 @@
 import { useState, useId, useRef, useEffect } from "react";
+import CookieConsent from "./CookieConsent";
 import svgPaths from "../imports/Desktop/svg-j917f2bgzo";
 import mobileSvgPaths from "../imports/Mobile/svg-84mqpsz1pl";
 import imgContainer from "figma:asset/60d71de7fef6177beb58cfcc49c1e962e0570e62.png";
@@ -263,7 +264,6 @@ function HeroForm() {
             <option value="bloomfield" style={{ backgroundColor: NAVY }}>Bloomfield, CT</option>
             <option value="enfield" style={{ backgroundColor: NAVY }}>Enfield, CT</option>
             <option value="vernon" style={{ backgroundColor: NAVY }}>Vernon, CT</option>
-            <option value="springfield" style={{ backgroundColor: NAVY }}>Springfield, MA</option>
           </select>
           {arrowIcon}
         </div>
@@ -461,9 +461,8 @@ export default function App() {
               <div className="flex flex-col gap-4">
                 {[
                   { title: "Bloomfield Urgent Care", address: "35 Jolley Drive, Suite 301, Bloomfield, CT 06002", map: "https://maps.app.goo.gl/j6dgTz8FoQ5t3FuS8" },
-                  { title: "Enfield Urgent Care",    address: "Elm Street, Suite 101, Enfield, CT 06082",         map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6" },
+                  { title: "Enfield Urgent Care",    address: "113 Elm Street, Suite 101, Enfield, CT 06082",     map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6" },
                   { title: "Vernon Urgent Care",     address: "224 Hartford Turnpike, Vernon, CT 06066",          map: "https://maps.app.goo.gl/GCWFqqPREpwh5sr9A" },
-                  { title: "Springfield, MA",        address: "299 Carew Street, Suite 409, Springfield, MA 01104", map: "https://maps.app.goo.gl/NR5Z1dKWN4QmeZVi9" },
                 ].map(loc => (
                   <a key={loc.title} href={loc.map} target="_blank" rel="noopener noreferrer" className="group hover:opacity-80 transition-opacity">
                     <p className={`${fBold} text-white text-base leading-6`}>{loc.title}</p>
@@ -584,7 +583,7 @@ export default function App() {
                   <li>On-site X-rays and diagnostic imaging</li>
                   <li>Specialized care from orthopedic experts</li>
                   <li>Personalized treatment and recovery plans</li>
-                  <li>Convenient locations throughout Connecticut and Springfield, Massachusetts</li>
+                  <li>Convenient locations throughout Connecticut</li>
                 </ul>
               </div>
             </Reveal>
@@ -659,9 +658,8 @@ export default function App() {
               <nav aria-label="Clinic locations" className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
                 {[
                   { title: "Bloomfield Urgent Care", lines: ["35 Jolley Drive, Suite 301, Bloomfield, CT 06002"], map: "https://maps.app.goo.gl/j6dgTz8FoQ5t3FuS8", phones: [{ label: "", tel: "+18607286740", display: "(860) 728-6740" }] },
-                  { title: "Enfield Urgent Care", lines: ["Elm Street, Suite 101, Enfield, CT 06082"], map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6", phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18602530431", display: "(860) 253-0431" }] },
+                  { title: "Enfield Urgent Care", lines: ["113 Elm Street, Suite 101, Enfield, CT 06082"], map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6", phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18602530431", display: "(860) 253-0431" }] },
                   { title: "Vernon Urgent Care", lines: ["224 Hartford Turnpike, Vernon, CT 06066"], map: "https://maps.app.goo.gl/GCWFqqPREpwh5sr9A", phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18604548200", display: "(860) 454-8200" }] },
-                  { title: "Springfield, MA", lines: ["299 Carew Street, Suite 409, Springfield, MA 01104"], map: "https://maps.app.goo.gl/NR5Z1dKWN4QmeZVi9", phones: [{ label: "Phone: ", tel: "+14137887321", display: "(413) 788-7321" }, { label: "Fax: ", tel: "+14137336369", display: "(413) 733-6369" }] },
                 ].map((loc, i) => (
                   <Reveal key={loc.title} delay={i * 60} className="flex flex-col gap-2.5">
                     <h3 className={`${fBold} text-xl leading-7`}>{loc.title}</h3>
@@ -701,11 +699,29 @@ export default function App() {
           {/* Bottom bar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-8 py-6 gap-4"
             style={{ backgroundColor: BLUE }}>
-            <p className={`${fLight} text-white text-base leading-6`}>© 2026 Advanced Orthopedics New England. All rights reserved</p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+              <p className={`${fLight} text-white text-base leading-6`}>© 2026 Advanced Orthopedics New England. All rights reserved</p>
+              <a
+                href="https://www.ctortho.com/privacy-policy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${fLight} text-white text-base leading-6 underline hover:opacity-80`}
+              >
+                Privacy Policy
+              </a>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+                className={`${fLight} text-white text-base leading-6 underline hover:opacity-80 text-left`}
+              >
+                Cookie settings
+              </button>
+            </div>
             <p className={`${fLight} text-white text-base leading-6`}>Digital marketing by Rebellion Group</p>
           </div>
         </footer>
       </main>
+      <CookieConsent />
     </div>
   );
 }

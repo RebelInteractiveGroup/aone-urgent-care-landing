@@ -928,7 +928,7 @@ function Title3() {
             <span className="leading-[24px]">Personalized treatment and recovery plans</span>
           </li>
           <li className="ms-[24px]">
-            <span className="leading-[24px]">Convenient locations throughout Connecticut and Springfield, Massachusetts</span>
+            <span className="leading-[24px]">Convenient locations throughout Connecticut</span>
           </li>
         </ul>
       </div>
@@ -1066,7 +1066,7 @@ function Link1() {
   return (
     <div className="content-stretch flex flex-col font-['Helvetica_Neue_LT_Std:45_Light',sans-serif] gap-[10px] items-start leading-[0] relative shrink-0 w-full" data-name="Link">
       <div className="min-w-full relative shrink-0 text-[16px] w-[min-content]">
-        <p className="leading-[24px] mb-0">Elm Street, Suite 101</p>
+        <p className="leading-[24px] mb-0">113 Elm Street, Suite 101</p>
         <p className="leading-[24px]">Enfield, CT 06082</p>
       </div>
       <div className="relative shrink-0 text-[0px] whitespace-nowrap">
@@ -1131,41 +1131,10 @@ function LinkColumn2() {
   );
 }
 
-function Link3() {
-  return (
-    <div className="content-stretch flex flex-col font-['Helvetica_Neue_LT_Std:45_Light',sans-serif] gap-[6px] items-start leading-[0] relative shrink-0 w-full" data-name="Link">
-      <div className="min-w-full relative shrink-0 text-[16px] w-[min-content]">
-        <p className="leading-[24px] mb-0">299 Carew Street, Suite 409</p>
-        <p className="leading-[24px]">Springfield, MA 01104</p>
-      </div>
-      <div className="relative shrink-0 text-[0px] whitespace-nowrap">
-        <p className="mb-0 text-[16px]">
-          <span className="leading-[24px]">{`Phone: `}</span>
-          <span className="[text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Helvetica_Neue_LT_Std:45_Light',sans-serif] leading-[24px] not-italic tracking-[-0.2px] underline">(413) 788-7321</span>
-        </p>
-        <p className="text-[16px]">
-          <span className="leading-[24px]">{`Fax: `}</span>
-          <span className="[text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Helvetica_Neue_LT_Std:45_Light',sans-serif] leading-[24px] not-italic tracking-[-0.2px] underline">(413) 733-6369</span>
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function LinkColumn3() {
-  return (
-    <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full" data-name="Link column">
-      <p className="font-['Helvetica_Neue:Condensed_Bold',sans-serif] leading-[28px] relative shrink-0 text-[20px] w-full">Springfield, MA</p>
-      <Link3 />
-    </div>
-  );
-}
-
 function Container7() {
   return (
     <div className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0 w-full" data-name="Container">
       <LinkColumn2 />
-      <LinkColumn3 />
     </div>
   );
 }

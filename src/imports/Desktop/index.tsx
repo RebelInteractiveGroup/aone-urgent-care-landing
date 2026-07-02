@@ -1260,7 +1260,7 @@ function Title3() {
             <span className="leading-[24px]">Personalized treatment and recovery plans</span>
           </li>
           <li className="ms-[24px]">
-            <span className="leading-[24px]">Convenient locations throughout Connecticut and Springfield, Massachusetts</span>
+            <span className="leading-[24px]">Convenient locations throughout Connecticut</span>
           </li>
         </ul>
       </div>
@@ -1398,7 +1398,7 @@ function LinkColumn() {
 function Link1() {
   return (
     <div className="content-stretch flex flex-col font-['Helvetica_Neue_LT_Std:45_Light',sans-serif] gap-[8px] items-start relative shrink-0 w-full" data-name="Link">
-      <p className="leading-[24px] min-w-full relative shrink-0 text-[16px] w-[min-content]">Elm Street, Suite 101, Enfield, CT 06082</p>
+      <p className="leading-[24px] min-w-full relative shrink-0 text-[16px] w-[min-content]">113 Elm Street, Suite 101, Enfield, CT 06082</p>
       <p className="leading-[0] relative shrink-0 text-[0px] whitespace-pre">
         <span className="leading-[24px] text-[16px]">{`Phone: `}</span>
         <span className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-from-font decoration-solid leading-[24px] text-[16px] underline">(860) 728-6740</span>
@@ -1450,34 +1450,10 @@ function LinkColumn2() {
   );
 }
 
-function Link3() {
-  return (
-    <div className="content-stretch flex flex-col font-['Helvetica_Neue_LT_Std:45_Light',sans-serif] gap-[8px] items-start relative shrink-0 w-full" data-name="Link">
-      <p className="leading-[24px] min-w-full relative shrink-0 text-[16px] w-[min-content]">299 Carew Street, Suite 409, Springfield, MA 01104</p>
-      <p className="leading-[0] relative shrink-0 text-[0px] whitespace-pre">
-        <span className="leading-[24px] text-[16px]">{`Phone: `}</span>
-        <span className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-from-font decoration-solid leading-[24px] text-[16px] underline">(413) 788-7321</span>
-        <span className="leading-[24px] text-[16px]">{`  |  Fax: `}</span>
-        <span className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-from-font decoration-solid leading-[24px] text-[16px] underline">(413) 733-6369</span>
-      </p>
-    </div>
-  );
-}
-
-function LinkColumn3() {
-  return (
-    <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[372px]" data-name="Link column">
-      <p className="font-['Helvetica_Neue:Condensed_Bold',sans-serif] leading-[28px] relative shrink-0 text-[20px] w-full">Springfield, MA</p>
-      <Link3 />
-    </div>
-  );
-}
-
 function Container7() {
   return (
     <div className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0 w-[372px]" data-name="Container">
       <LinkColumn2 />
-      <LinkColumn3 />
     </div>
   );
 }

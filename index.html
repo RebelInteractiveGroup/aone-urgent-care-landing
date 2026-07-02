@@ -3,9 +3,23 @@
   <html lang="en">
     <head>
       
-      <!-- Google Tag Manager -->
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WR6V3TFH');</script>
-      <!-- End Google Tag Manager -->
+      <!-- Google Consent Mode v2 defaults (deny until user consents) -->
+      <!-- NOTE: Google Tag Manager (GTM-WR6V3TFH) is NOT loaded here. It is loaded
+           only after the user accepts cookies, via the CookieConsent component. -->
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
+      </script>
+      <!-- End Consent Mode defaults -->
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -20,9 +34,8 @@
 
     <body>
       
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WR6V3TFH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
+      <!-- Google Tag Manager (noscript) intentionally omitted: GTM loads only
+           after cookie consent, so no unconditional noscript fallback is used. -->
       <div id="root"></div>
       <!-- Netlify form detection for React SPA -->
       <form name="contact" netlify hidden>
