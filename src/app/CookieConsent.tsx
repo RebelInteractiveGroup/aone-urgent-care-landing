@@ -73,6 +73,60 @@ function gtagConsentUpdate(c: Consent) {
   });
 }
 
+// Google Analytics cookie name patterns.
+//   GA4:    _ga, _ga_<STREAM_ID>
+//   UA/legacy: _gid, _gat, _gat_<...>, _gac_<...>, AMP_TOKEN, __utm*
+const GA_COOKIE_PATTERNS: RegExp[] = [
+  /^_ga$/,
+  /^_ga_/,
+  /^_gid$/,
+  /^_gat/,
+  /^_gac_/,
+  /^AMP_TOKEN$/,
+  /^__utm/,
+];
+
+// Expire a cookie across every domain/path variant it could have been set on.
+// GA sets cookies on the registrable domain (e.g. ".example.com"), so we try the
+// exact host, each parent domain (dot-prefixed), and the current + root paths.
+function deleteCookie(name: string) {
+  const hostname = window.location.hostname;
+  const domains = new Set<string>(["", hostname, "." + hostname]);
+  const parts = hostname.split(".");
+  for (let i = 0; i < parts.length - 1; i++) {
+    domains.add("." + parts.slice(i).join("."));
+  }
+  const paths = new Set<string>(["/", window.location.pathname]);
+  const expired = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  for (const path of paths) {
+    for (const domain of domains) {
+      document.cookie =
+        name +
+        "=; " +
+        expired +
+        "; path=" +
+        path +
+        (domain ? "; domain=" + domain : "") +
+        "; SameSite=Lax";
+    }
+  }
+}
+
+// Remove all currently active Google Analytics cookies. Called when analytics
+// consent is denied (e.g. "Reject all").
+function clearGoogleAnalyticsCookies() {
+  if (typeof document === "undefined" || !document.cookie) return;
+  const names = document.cookie
+    .split(";")
+    .map((c) => c.split("=")[0].trim())
+    .filter(Boolean);
+  for (const name of names) {
+    if (GA_COOKIE_PATTERNS.some((re) => re.test(name))) {
+      deleteCookie(name);
+    }
+  }
+}
+
 function loadGTM() {
   if (window.__gtmLoaded) return;
   window.__gtmLoaded = true;
@@ -113,6 +167,11 @@ function applyConsent(c: Consent, eventName: "cookie_consent_default" | "cookie_
   });
   if (c.analytics || c.marketing) {
     loadGTM();
+  }
+  // If analytics was rejected, purge any Google Analytics cookies still active
+  // (e.g. set on a prior visit or before the consent choice was made).
+  if (!c.analytics) {
+    clearGoogleAnalyticsCookies();
   }
 }
 
