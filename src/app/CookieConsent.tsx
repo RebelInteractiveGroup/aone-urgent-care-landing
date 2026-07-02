@@ -94,7 +94,9 @@ function deleteCookie(name: string) {
   const domains = new Set<string>(["", hostname, "." + hostname]);
   const parts = hostname.split(".");
   for (let i = 0; i < parts.length - 1; i++) {
-    domains.add("." + parts.slice(i).join("."));
+    const parent = parts.slice(i).join(".");
+    domains.add(parent);       // e.g. example.com
+    domains.add("." + parent); // e.g. .example.com (GA's default)
   }
   const paths = new Set<string>(["/", window.location.pathname]);
   const expired = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
@@ -112,19 +114,41 @@ function deleteCookie(name: string) {
   }
 }
 
+// GA4 respects a global window['ga-disable-<MEASUREMENT_ID>'] = true flag that
+// stops a loaded gtag.js instance from setting/refreshing cookies. Derive the
+// measurement ID(s) from any _ga_<STREAM_ID> cookies and set the flag, so GA
+// can't immediately re-create the cookie we're about to delete.
+function disableGAFromCookieNames(names: string[]) {
+  for (const name of names) {
+    const m = name.match(/^_ga_(.+)$/);
+    if (m) {
+      (window as unknown as Record<string, boolean>)["ga-disable-G-" + m[1]] = true;
+    }
+  }
+}
+
 // Remove all currently active Google Analytics cookies. Called when analytics
 // consent is denied (e.g. "Reject all").
 function clearGoogleAnalyticsCookies() {
-  if (typeof document === "undefined" || !document.cookie) return;
-  const names = document.cookie
-    .split(";")
-    .map((c) => c.split("=")[0].trim())
-    .filter(Boolean);
-  for (const name of names) {
-    if (GA_COOKIE_PATTERNS.some((re) => re.test(name))) {
-      deleteCookie(name);
+  if (typeof document === "undefined") return;
+  const purge = () => {
+    if (!document.cookie) return;
+    const names = document.cookie
+      .split(";")
+      .map((c) => c.split("=")[0].trim())
+      .filter(Boolean);
+    disableGAFromCookieNames(names);
+    for (const name of names) {
+      if (GA_COOKIE_PATTERNS.some((re) => re.test(name))) {
+        deleteCookie(name);
+      }
     }
-  }
+  };
+  purge();
+  // A still-loaded gtag instance can re-write _ga right after the consent update
+  // settles (Consent Mode has a ~500ms wait_for_update window). Sweep again to
+  // catch any cookies that reappear.
+  setTimeout(purge, 600);
 }
 
 function loadGTM() {

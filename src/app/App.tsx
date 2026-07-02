@@ -657,9 +657,9 @@ export default function App() {
               {/* Locations */}
               <nav aria-label="Clinic locations" className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
                 {[
-                  { title: "Bloomfield Urgent Care", lines: ["35 Jolley Drive, Suite 301, Bloomfield, CT 06002"], map: "https://maps.app.goo.gl/j6dgTz8FoQ5t3FuS8", phones: [{ label: "", tel: "+18607286740", display: "(860) 728-6740" }] },
-                  { title: "Enfield Urgent Care", lines: ["113 Elm Street, Suite 101, Enfield, CT 06082"], map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6", phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18602530431", display: "(860) 253-0431" }] },
-                  { title: "Vernon Urgent Care", lines: ["224 Hartford Turnpike, Vernon, CT 06066"], map: "https://maps.app.goo.gl/GCWFqqPREpwh5sr9A", phones: [{ label: "Phone: ", tel: "+18607286740", display: "(860) 728-6740" }, { label: "Fax: ", tel: "+18604548200", display: "(860) 454-8200" }] },
+                  { title: "Bloomfield Urgent Care", lines: ["35 Jolley Drive, Suite 301, Bloomfield, CT 06002"], map: "https://maps.app.goo.gl/j6dgTz8FoQ5t3FuS8", phones: [{ label: "", tel: "+18607309965", display: "(860) 730-9965" }] },
+                  { title: "Enfield Urgent Care", lines: ["113 Elm Street, Suite 101, Enfield, CT 06082"], map: "https://maps.app.goo.gl/qjmedBEUG8bWvfuz6", phones: [{ label: "Phone: ", tel: "+18603210583", display: "(860) 321-0583" }, { label: "Fax: ", tel: "+18602530431", display: "(860) 253-0431" }] },
+                  { title: "Vernon Urgent Care", lines: ["224 Hartford Turnpike, Vernon, CT 06066"], map: "https://maps.app.goo.gl/GCWFqqPREpwh5sr9A", phones: [{ label: "Phone: ", tel: "+18602173137", display: "(860) 217-3137" }, { label: "Fax: ", tel: "+18604548200", display: "(860) 454-8200" }] },
                 ].map((loc, i) => (
                   <Reveal key={loc.title} delay={i * 60} className="flex flex-col gap-2.5">
                     <h3 className={`${fBold} text-xl leading-7`}>{loc.title}</h3>
